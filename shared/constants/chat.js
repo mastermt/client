@@ -369,7 +369,6 @@ export const StateRecord: KBRecord<T> = Record({
   pendingConversations: Map(),
   nowOverride: null,
   editingMessage: null,
-  initialConversation: null,
   inboxUntrustedState: 'unloaded',
   previousConversation: null,
   searchPending: false,
@@ -408,7 +407,6 @@ export type State = KBRecord<{
   tempPendingConversations: Map<ConversationIDKey, boolean>,
   nowOverride: ?Date,
   editingMessage: ?Message,
-  initialConversation: ?ConversationIDKey,
   inboxUntrustedState: UntrustedState,
   previousConversation: ?ConversationIDKey,
   searchPending: boolean,
@@ -543,10 +541,6 @@ export type SetInboxSearch = NoErrorTypedAction<'chat:inboxSearch', {search: Arr
 export type SetInboxUntrustedState = NoErrorTypedAction<
   'chat:inboxUntrustedState',
   {inboxUntrustedState: UntrustedState}
->
-export type SetInitialConversation = NoErrorTypedAction<
-  'chat:setInitialConversation',
-  {conversationIDKey: ?ConversationIDKey}
 >
 export type SetPreviousConversation = NoErrorTypedAction<
   'chat:setPreviousConversation',
